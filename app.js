@@ -6,7 +6,8 @@ express        = require("express"),
 app            = express();
 
 // APP CONFIG
-mongoose.connect("mongodb://ybroyde:33rockefeller@ds123752.mlab.com:23752/ybroyde");
+//mongoose.connect("mongodb://ybroyde:33rockefeller@ds123752.mlab.com:23752/ybroyde");
+mongoose.connect("mongodb://localhost/blogapp");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -111,7 +112,7 @@ app.delete("/blogs/:id", function(req, res){
   //redirect somewhere
 });
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000/*process.env.PORT, process.env.IP*/, function(){
     console.log("Blogs server running!");
-})
+});
 
